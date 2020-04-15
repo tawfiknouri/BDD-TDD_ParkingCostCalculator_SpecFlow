@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ParkCostCalc.Core.Specs": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "MSBUILDSINGLELOADCONTEXT": "1"
+      }
+    }
+  }
+}
