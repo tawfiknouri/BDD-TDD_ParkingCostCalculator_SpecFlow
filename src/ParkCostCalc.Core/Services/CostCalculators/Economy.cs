@@ -7,7 +7,7 @@ namespace ParkCostCalc.Core.Services.CostCalculators
 {
     public class Economy : CalculatorBase, ICostCalc
     {
-        private const decimal MAX_COST_PER_WEEK = 53;
+        private const decimal MAX_COST_PER_WEEK = 54;
         private const decimal MAX_COST_PER_DAY = 9;
         private const decimal MAX_COST_PER_HOUR = 2;
 
