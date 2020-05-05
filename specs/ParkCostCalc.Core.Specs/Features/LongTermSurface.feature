@@ -1,4 +1,4 @@
-@fast
+ï»¿@fast
 Feature: Long-Term Surface Parking feature
   The parking lot calculator can calculate costs for Long-Term Surface parking.
 
@@ -10,17 +10,17 @@ Scenario Outline: Calculate LongTermSurface Parking Cost
 
 	Examples:
 		| duration       | cost    |
-		| 0 minute       | 0.00€   |
-		| 30 minutes     | 2.00€   |
-		| 1 hour         | 2.00€   |
-		| 5 hours        | 10.00€  |
-		| 6 hours        | 10.00€  |
-		| 24 hours       | 10.00€  |
-		| 1 day, 1 hour  | 12.00€  |
-		| 1 day, 3 hours | 16.00€  |
-		| 1 day, 6 hours | 20.00€  |
-		| 6 days         | 60.00€  |
-		| 6 days, 1 hour | 60.00€  |
-		| 7 days         | 60.00€  |
-		| 1 week, 2 days | 80.00€  |
-		| 3 weeks        | 180.00€ |
+		| 0 minute       | 0.00â‚¬   |
+		| 30 minutes     | 2.00â‚¬   |
+		| 1 hour         | 2.00â‚¬   |
+		| 5 hours        | 10.00â‚¬  |
+		| 6 hours        | 10.00â‚¬  |
+		| 24 hours       | 10.00â‚¬  |
+		| 1 day, 1 hour  | 12.00â‚¬  |
+		| 1 day, 3 hours | 16.00â‚¬  |
+		| 1 day, 6 hours | 20.00â‚¬  |
+		| 6 days         | 60.00â‚¬  |
+		| 6 days, 1 hour | 60.00â‚¬  |
+		| 7 days         | 60.00â‚¬  |
+		| 1 week, 2 days | 80.00â‚¬  |
+		| 3 weeks        | 180.00â‚¬ |

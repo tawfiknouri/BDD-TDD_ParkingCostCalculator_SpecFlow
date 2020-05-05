@@ -10,41 +10,38 @@ namespace ParkCostCalc.Core.Specs.StepDefinitions
     [Binding]
     public class ContactSteps
     {
-        private readonly ScenarioContext _scenarioContext;
+        private Contact _contactDetails;
         private readonly ContactDriver _contactDriver;
+        private readonly ScenarioContext _scenarioContext;
 
-        public ContactSteps(ScenarioContext scenarioContext, ContactDriver contactDriver)
+        public ContactSteps(ScenarioContext scenarioContext, Contact contactDetails, ContactDriver contactDriver)
         {
             _scenarioContext = scenarioContext;
+            _contactDetails = contactDetails;
             _contactDriver = contactDriver;
         }
 
         [Given(@"the following contact details")]
         public void GivenTheFollowingContactDetails(Table table)
         {
-            var contactDetails = table.CreateInstance<Contact>();
-            _scenarioContext.Add("contactDetails", contactDetails);
-
+            _contactDetails = table.CreateInstance<Contact>();
         }
 
         [When(@"the contact request is submited")]
         public void WhenTheContactRequestIsSubmited()
         {
             // Adding Contact
-            _scenarioContext.TryGetValue("contactDetails", out Contact contactDetails);
-            var dbContactDetails = _contactDriver.AddContactDetails(contactDetails);
-            _scenarioContext.Add("dbContactDetails", dbContactDetails);
+            _contactDetails = _contactDriver.AddContactDetails(_contactDetails);
 
             // Sending Email
-            var emailSentStatus = _contactDriver.SendEmail(contactDetails);
+            var emailSentStatus = _contactDriver.SendEmail(_contactDetails);
             _scenarioContext.Add("emailSentStatus", emailSentStatus);
         }
 
         [Then(@"the contact request should be created successfully")]
         public void ThenTheContactRequestShouldBeCreatedSuccessfully()
         {
-            _scenarioContext.TryGetValue("dbContactDetails", out Contact dbContactDetails);
-            Assert.IsTrue(dbContactDetails.Id > 0, "Error during adding contact!");
+            Assert.IsTrue(_contactDetails.Id > 0, "Error during adding contact!");
         }
 
         [Then(@"the email with contact request should be sent to the support team")]
