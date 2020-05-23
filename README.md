@@ -9,9 +9,9 @@ The main goal is to share knowledge !
 Please do not hesitate to contact me if you have any questions or PR.
 
 
-The example also appears in the official specflow documentation.
+**The example also appears in the official specflow documentation.**
 
-See here for details: https://specflow.org/docs/
+See here for details: **https://specflow.org/docs/**
 
 
 Thanks for enjoying!
