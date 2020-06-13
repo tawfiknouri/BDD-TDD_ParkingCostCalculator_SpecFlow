@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using ParkCostCalc.Core.Services.CostCalculators;
-using System;
 
 namespace ParkCostCalc.Core.UnitTests.CostCalculators
 {
@@ -15,6 +14,16 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             _costCalculator = new Valet();
 
+        }
+
+        [Test]
+        public void Should_Charge_0_Euros_When_Valet_Parking_Time_Is_Negative()
+        {
+            var totalMinutes = -1;
+
+            var cost = _costCalculator.CalculateCost(totalMinutes);
+
+            Assert.AreEqual(0, cost);
         }
 
         [Test]

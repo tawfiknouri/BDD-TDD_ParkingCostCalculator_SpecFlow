@@ -9,7 +9,7 @@ namespace ParkCostCalc.Core.Services.CostCalculators
         {
             decimal totalCost = 0;
             TimeSpan duration = TimeSpan.FromMinutes(totalMinutes);
-            if (totalMinutes == 0) totalCost = 0;
+            if (totalMinutes <= 0) totalCost = 0;
             else
             {
                 var totalWeeks = duration.Days / 7;

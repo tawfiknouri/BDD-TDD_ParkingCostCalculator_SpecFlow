@@ -16,6 +16,16 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         }
 
         [Test]
+        public void Should_Charge_0_Euros_When_Economy_Parking_Time_Is_Negative()
+        {
+            var totalMinutes = -1;
+
+            var cost = _costCalculator.CalculateCost(totalMinutes);
+
+            Assert.AreEqual(0, cost);
+        }
+
+        [Test]
         public void Should_Charge_0_Euros_When_Economy_Parking_Time_Is_0_Minute()
         {
             var totalMinutes = 0;

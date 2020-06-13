@@ -16,7 +16,7 @@ namespace ParkCostCalc.Core.Services.CostCalculators
         {
             decimal totalCost = 0;
             TimeSpan duration = TimeSpan.FromMinutes(totalMinutes);
-            if (totalMinutes == 0) totalCost = 0;
+            if (totalMinutes <= 0) totalCost = 0;
             else if (totalMinutes <= ONE_HOUR) totalCost = COST_FIRST_HOUR;
             else
             {
