@@ -33,9 +33,9 @@ namespace ParkCostCalc.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error during adding contact!");
             }
 
-            var dd = _emailService.SendEmailToSupport(dbContact);
+            var emailSatus = _emailService.SendEmailToSupport(dbContact);
 
-            return Ok(true);
+            return Ok(emailSatus);
         }
 
     }
