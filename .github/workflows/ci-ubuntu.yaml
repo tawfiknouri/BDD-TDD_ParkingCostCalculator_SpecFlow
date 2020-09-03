@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ParkCostCalc
-          path: ./specs/ParkCostCalc.Core.Specs/bin/Debug/netcoreapp3.1/LivingDoc.html
+          path: ./LivingDoc.html
