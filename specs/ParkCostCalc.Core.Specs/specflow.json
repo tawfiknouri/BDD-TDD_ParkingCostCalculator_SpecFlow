@@ -1,5 +1,10 @@
 {
-    "language": {
-        "feature": "en"
-    }, "allowDebugGeneratedFiles":true
+  "language": {
+    "feature": "en"
+  },
+  "allowDebugGeneratedFiles": true,
+  "livingDocGenerator": {
+    "enabled": true,
+    "filepath": "FeatureData.json"
+  }
 }

@@ -27,3 +27,17 @@ jobs:
       - name: Run Specs (ParkCostCalc.Core.Specs)
         run: |
           dotnet test specs/ParkCostCalc.Core.Specs -v m
+
+      - name: Installing SpecFlow.Plus.LivingDoc.CLI 
+        run: |
+         dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+
+      - name: Living-Doc
+        run: |
+          livingdoc specs/ParkCostCalc.Core.Specs/bin/Debug/netcoreapp3.1/FeatureData.json
+
+      - name: Upload report
+        uses: actions/upload-artifact@v2
+        with:
+          name: ParkCostCalc
+          path: ./specs/ParkCostCalc.Core.Specs/bin/Debug/netcoreapp3.1/LivingDoc.html
