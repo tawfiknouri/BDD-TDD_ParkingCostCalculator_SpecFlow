@@ -12,7 +12,7 @@ Please do not hesitate to contact me if you have any questions or PR.
 
 **The example also appears in the official specflow documentation.**
 
-See here for details: **https://specflow.org/docs/**
+See here for details: **https://docs.specflow.org/en/latest/Examples.html#community-sample-projects**
 
 
 Thanks for enjoying!
