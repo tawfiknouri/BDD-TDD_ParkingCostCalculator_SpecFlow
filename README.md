@@ -1,5 +1,6 @@
 # BDD/TDD With SpecFlow & .NET Core
-![Actions](https://github.com/tawfiknouri/BDD-TDD_ParkingCostCalculator_SpecFlow/blob/master/.github/workflows/ci-ubuntu.yaml/badge.svg)
+
+[![main](https://github.com/tawfiknouri/BDD-TDD_ParkingCostCalculator_SpecFlow/workflows/ci-ubuntu.yaml/badge.svg)](https://github.com/tawfiknouri/BDD-TDD_ParkingCostCalculator_SpecFlow/actions)
 
 The intention of this project is not create the best parking cost calculator in the world.
 We want the simplest parking cost calculator in the world so we can focus on Behavior Driven Development (BDD) and Test Driven Development (TDD) practice
