@@ -33,7 +33,7 @@ With each site having its own set of rules how a ticket price is calculated:
 - 18.00€ per day
 - 12.00€ for five hours or less
 ## Short-Term Parking
-- 2.00€ first hour; $1.00€ each additional 1/2 hour
+- 2.00€ first hour; 1.00€ each additional 1/2 hour
 - 24.00€ daily maximum
 ## Long-Term Garage Parking
 - 2.00€ per hour
