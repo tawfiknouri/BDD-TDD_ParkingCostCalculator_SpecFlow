@@ -11,7 +11,7 @@ jobs:
       - name: Enable git longpaths
         run: git config --global core.longpaths true
       - name: Setup .NET Core SDK (v3.1.102)
-        uses: actions/setup-dotnet@v1.4.0
+        uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.102
       - name: Checkout
