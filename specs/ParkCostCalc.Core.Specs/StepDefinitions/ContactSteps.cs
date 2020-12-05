@@ -27,8 +27,8 @@ namespace ParkCostCalc.Core.Specs.StepDefinitions
             _contactDetails = table.CreateInstance<Contact>();
         }
 
-        [When(@"the contact request is submited")]
-        public void WhenTheContactRequestIsSubmited()
+        [When(@"the contact request is submitted")]
+        public void WhenTheContactRequestIsSubmitted()
         {
             // Adding Contact
             _contactDetails = _contactDriver.AddContactDetails(_contactDetails);
