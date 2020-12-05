@@ -21,7 +21,7 @@ namespace ParkCostCalc.Core.Specs.Support
         }
 
         [BeforeScenario("db")]
-        public void InitializeDataBaseDependancies()
+        public void InitializeDataBaseDependencies()
         {
             var options = new DbContextOptionsBuilder<ParkingDbContext>()
                .UseInMemoryDatabase(databaseName: "BDDParking")
@@ -32,7 +32,7 @@ namespace ParkCostCalc.Core.Specs.Support
         }
 
         [BeforeScenario]
-        public void InitializeDependancies()
+        public void InitializeDependencies()
         {
             _objectContainer.RegisterInstanceAs(new LoggerFactory(), typeof(ILoggerFactory));
 
