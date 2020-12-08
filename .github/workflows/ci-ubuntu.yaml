@@ -34,7 +34,7 @@ jobs:
 
       - name: Living-Doc
         run: |
-          livingdoc specs/ParkCostCalc.Core.Specs/bin/Debug/netcoreapp3.1/FeatureData.json
+          livingdoc feature-data specs/ParkCostCalc.Core.Specs/bin/Debug/netcoreapp3.1/FeatureData.json
 
       - name: Upload report
         uses: actions/upload-artifact@v2
