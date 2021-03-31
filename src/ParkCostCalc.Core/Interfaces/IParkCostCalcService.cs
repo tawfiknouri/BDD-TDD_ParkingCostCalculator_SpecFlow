@@ -1,5 +1,5 @@
 using ParkCostCalc.Core.Models;
-namespace ParkCostCalc.Core.Services
+namespace ParkCostCalc.Core.Interfaces
 {
      public interface IParkCostCalcService
     {

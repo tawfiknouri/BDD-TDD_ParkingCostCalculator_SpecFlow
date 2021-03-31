@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ParkCostCalc.Core.Services
+namespace ParkCostCalc.Core.Interfaces
 {
     public interface IEmailService
     {

@@ -1,7 +1,7 @@
 using ParkCostCalc.Core.Models;
 using System;
 
-namespace ParkCostCalc.Core.Services.CostCalculators
+namespace ParkCostCalc.Core.Interfaces
 {
      public interface ICostCalc
     {

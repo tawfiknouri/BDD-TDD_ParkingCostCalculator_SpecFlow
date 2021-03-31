@@ -24,9 +24,9 @@ jobs:
         run: |
           dotnet test tests/ParkCostCalc.Core.UnitTests -v m
 
-      - name: Run Specs (ParkCostCalc.Core.Specs)
+      - name: Run AcceptanceTests
         run: |
-          dotnet test specs/ParkCostCalc.Core.Specs -v m
+          dotnet test tests/ParkCostCalc.AcceptanceTests -v m
 
       - name: Installing SpecFlow.Plus.LivingDoc.CLI 
         run: |
@@ -34,7 +34,7 @@ jobs:
 
       - name: Living-Doc
         run: |
-          livingdoc feature-data specs/ParkCostCalc.Core.Specs/bin/Debug/netcoreapp3.1/FeatureData.json
+          livingdoc feature-data tests/ParkCostCalc.AcceptanceTests/bin/Debug/netcoreapp3.1/FeatureData.json
 
       - name: Upload report
         uses: actions/upload-artifact@v2

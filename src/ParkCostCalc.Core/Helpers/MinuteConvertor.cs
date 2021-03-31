@@ -1,4 +1,4 @@
-﻿namespace ParkCostCalc.Core.Helpers
+﻿namespace ParkCostCalc.Application.Helpers
 {
     public class MinuteConvertor
     {

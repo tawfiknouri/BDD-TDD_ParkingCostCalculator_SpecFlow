@@ -2,10 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Moq;
-using ParkCostCalc.Core.Infrastructure;
-using ParkCostCalc.Core.Infrastructure.Repositories;
+using ParkCostCalc.Core.Interfaces;
 using ParkCostCalc.Core.Models;
-using ParkCostCalc.Core.Services;
+using ParkCostCalc.Infrastructure;
+using ParkCostCalc.Infrastructure.Repositories;
 using TechTalk.SpecFlow;
 
 namespace ParkCostCalc.Core.Specs.Support

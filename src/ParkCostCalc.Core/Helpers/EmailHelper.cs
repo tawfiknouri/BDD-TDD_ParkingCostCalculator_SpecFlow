@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ParkCostCalc.Core.Helpers
+namespace ParkCostCalc.Application.Helpers
 {
     public class EmailHelper
     {

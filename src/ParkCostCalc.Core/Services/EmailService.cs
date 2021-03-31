@@ -1,7 +1,8 @@
-﻿using ParkCostCalc.Core.Helpers;
+﻿using ParkCostCalc.Application.Helpers;
+using ParkCostCalc.Core.Interfaces;
 using ParkCostCalc.Core.Models;
 
-namespace ParkCostCalc.Core.Services
+namespace ParkCostCalc.Application.Services
 {
     public class EmailService : IEmailService
     {

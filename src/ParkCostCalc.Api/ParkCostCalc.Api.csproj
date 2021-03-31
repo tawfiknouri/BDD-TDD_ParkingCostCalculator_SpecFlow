@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ParkCostCalc.Core\ParkCostCalc.Core.csproj" />
+    <ProjectReference Include="..\ParkCostCalc.Infrastructure\ParkCostCalc.Infrastructure\ParkCostCalc.Infrastructure.csproj" />
   </ItemGroup>
 
 

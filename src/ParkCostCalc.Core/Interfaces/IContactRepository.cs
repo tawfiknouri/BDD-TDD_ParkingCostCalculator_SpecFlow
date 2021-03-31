@@ -1,6 +1,6 @@
 ﻿using ParkCostCalc.Core.Models;
 
-namespace ParkCostCalc.Core.Infrastructure.Repositories
+namespace ParkCostCalc.Core.Interfaces
 {
     public interface IContactRepository
     {

@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ParkCostCalc.Core\ParkCostCalc.Core.csproj" />
-
+    <ProjectReference Include="..\..\src\ParkCostCalc.Infrastructure\ParkCostCalc.Infrastructure\ParkCostCalc.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
