@@ -4,8 +4,8 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using ParkCostCalc.Core.Interfaces;
 using ParkCostCalc.Core.Models;
-using ParkCostCalc.Infrastructure;
-using ParkCostCalc.Infrastructure.Repositories;
+using ParkCostCalc.Infrastructure.Data;
+using ParkCostCalc.Infrastructure.Data.Repositories;
 using TechTalk.SpecFlow;
 
 namespace ParkCostCalc.Core.Specs.Support
@@ -36,9 +36,9 @@ namespace ParkCostCalc.Core.Specs.Support
         {
             _objectContainer.RegisterInstanceAs(new LoggerFactory(), typeof(ILoggerFactory));
 
-            var emailService = new Mock<IEmailService>();
-            emailService.Setup(mock => mock.SendEmailToSupport(It.IsAny<Contact>())).Returns(true);
-            _objectContainer.RegisterInstanceAs(emailService.Object, typeof(IEmailService));
+            var emailSender = new Mock<IEmailSender>();
+            emailSender.Setup(mock => mock.SendEmailToSupport(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
+            _objectContainer.RegisterInstanceAs(emailSender.Object, typeof(IEmailSender));
         }
 
     }

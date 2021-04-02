@@ -3,7 +3,7 @@ namespace ParkCostCalc.Core.Interfaces
 {
      public interface IParkCostCalcService
     {
-        public CostDetails CalculateCost(ParkRequest parkRequest);
+        public CostDetails CalculateCost(ParkTypeEnum parkType, double duration);
 
     }
 }

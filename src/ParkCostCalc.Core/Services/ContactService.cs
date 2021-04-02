@@ -6,13 +6,20 @@ namespace ParkCostCalc.Core.Services
     public class ContactService: IContactService
     {
         private readonly IContactRepository _contactRepository;
-        public ContactService(IContactRepository contactRepository)
+        private readonly IEmailSender _emailSender;
+        public ContactService(IContactRepository contactRepository,  IEmailSender emailSender)
         {
             _contactRepository = contactRepository;
+            _emailSender = emailSender;
         }
-        public Contact CreateContact(Contact contact )
+        public Contact ContactUs(Contact contact )
         {
-            return _contactRepository.CreateContact(contact);
+            var dbContact = _contactRepository.CreateContact(contact);
+
+            _emailSender.SendEmailToSupport("support@webpark.com", dbContact.Email, "support", contact.Message);
+
+            return dbContact;
+
         }
     }
 }

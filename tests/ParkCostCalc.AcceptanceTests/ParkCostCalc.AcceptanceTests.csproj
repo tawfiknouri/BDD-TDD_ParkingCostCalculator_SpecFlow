@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ParkCostCalc.Core\ParkCostCalc.Core.csproj" />
-    <ProjectReference Include="..\..\src\ParkCostCalc.Infrastructure\ParkCostCalc.Infrastructure\ParkCostCalc.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\ParkCostCalc.Infrastructure\ParkCostCalc.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,13 +28,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  
-
-  <PropertyGroup>
-    <Pickles_Generate>True</Pickles_Generate>
-    <Pickles_DocumentationFormat>dhtml</Pickles_DocumentationFormat>
-    <Pickles_OutputDirectory>../PicklesDocumentation</Pickles_OutputDirectory>
-  </PropertyGroup>
 
 
 </Project>

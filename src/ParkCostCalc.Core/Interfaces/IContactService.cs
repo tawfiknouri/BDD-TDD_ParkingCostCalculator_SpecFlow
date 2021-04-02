@@ -7,6 +7,6 @@ namespace ParkCostCalc.Core.Interfaces
 {
     public interface IContactService
     {
-        public Contact CreateContact(Contact contact);
+        public Contact ContactUs(Contact contact);
     }
 }

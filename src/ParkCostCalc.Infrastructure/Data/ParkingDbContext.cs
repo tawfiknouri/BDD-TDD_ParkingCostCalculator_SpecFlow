@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ParkCostCalc.Core.Models;
 
-namespace ParkCostCalc.Infrastructure
+namespace ParkCostCalc.Infrastructure.Data
 {
     public class ParkingDbContext : DbContext
     {

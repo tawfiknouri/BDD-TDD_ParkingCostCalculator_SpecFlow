@@ -2,7 +2,7 @@
 using ParkCostCalc.Core.Interfaces;
 using ParkCostCalc.Core.Models;
 
-namespace ParkCostCalc.Infrastructure.Repositories
+namespace ParkCostCalc.Infrastructure.Data.Repositories
 {
     public class ContactRepository : IContactRepository
     {

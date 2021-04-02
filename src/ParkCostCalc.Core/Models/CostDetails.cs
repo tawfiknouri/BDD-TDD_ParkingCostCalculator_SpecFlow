@@ -9,6 +9,11 @@ namespace ParkCostCalc.Core.Models
         public double Days { get; set; }
         public double Hours { get; set; }
         public double Minutes { get; set; }
+
+        public CostDetails()
+        {
+           // this.Cost
+        }
   
     }
 }

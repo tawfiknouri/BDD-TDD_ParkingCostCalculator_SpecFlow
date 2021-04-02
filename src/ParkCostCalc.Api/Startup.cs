@@ -5,11 +5,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using ParkCostCalc.Application.Services;
 using ParkCostCalc.Core.Interfaces;
 using ParkCostCalc.Core.Services;
 using ParkCostCalc.Infrastructure;
-using ParkCostCalc.Infrastructure.Repositories;
+using ParkCostCalc.Infrastructure.Data;
+using ParkCostCalc.Infrastructure.Data.Repositories;
 using System.Text.Json.Serialization;
 
 namespace ParkCostCalc.Api
@@ -31,6 +31,7 @@ namespace ParkCostCalc.Api
                 opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
 
+            // Only for demos ...
             services.AddDbContext<ParkingDbContext>(options => options.UseSqlite("Data source=.\\..\\..\\data\\BDDParking.sqlite"));
 
             // Repositories
@@ -39,7 +40,7 @@ namespace ParkCostCalc.Api
             // Services
             services.AddTransient<IParkCostCalcService, ParkCostCalcService>();
             services.AddTransient<IContactService, ContactService>();
-            services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<IEmailSender, EmailSender>();
 
             //Update as appropriate for origin, method, header
             services.AddCors(options =>

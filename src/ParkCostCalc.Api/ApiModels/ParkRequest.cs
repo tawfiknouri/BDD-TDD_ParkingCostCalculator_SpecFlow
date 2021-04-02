@@ -1,7 +1,8 @@
-﻿using System;
+﻿using ParkCostCalc.Core.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ParkCostCalc.Core.Models
+namespace ParkCostCalc.Api.ApiModels
 {
     public class ParkRequest
     {

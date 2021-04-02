@@ -5,8 +5,8 @@ using System.Text;
 
 namespace ParkCostCalc.Core.Interfaces
 {
-    public interface IEmailService
+    public interface IEmailSender
     {
-        bool SendEmailToSupport(Contact contact);
+        bool SendEmailToSupport(string to, string from, string subject, string body);
     }
 }

@@ -13,7 +13,7 @@ namespace ParkCostCalc.Core.Services.CostCalculators
         private const int HALF_HOUR = ONE_MINUTE * 30;
         private const int ONE_HOUR = ONE_MINUTE * 60;
 
-        public decimal CalculateCost(double totalMinutes)
+        public CostDetails CalculateCost(double totalMinutes)
         {
             decimal totalCost = 0;
             TimeSpan duration = TimeSpan.FromMinutes(totalMinutes);
@@ -29,7 +29,14 @@ namespace ParkCostCalc.Core.Services.CostCalculators
                 totalCost = daysCost + halfHoursCost;
             }
 
-            return totalCost;
+
+            return new CostDetails
+            {
+                Cost = totalCost,
+                Days = duration.Days,
+                Hours = duration.Hours,
+                Minutes = duration.Minutes
+            };
         }
 
        

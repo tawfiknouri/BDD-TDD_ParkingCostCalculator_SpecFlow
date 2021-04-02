@@ -12,12 +12,12 @@ namespace ParkCostCalc.Api.Controllers
     public class ContactController : ControllerBase
     {
         private readonly IContactService _contactService;
-        private readonly IEmailService _emailService;
+       
 
-        public ContactController(IContactService contactService, IEmailService emailService)
+        public ContactController(IContactService contactService, IEmailSender emailSender)
         {
             _contactService = contactService;
-            _emailService = emailService;
+            
         }
 
         [HttpPost]
@@ -28,15 +28,13 @@ namespace ParkCostCalc.Api.Controllers
                 return BadRequest();
             }
 
-            var dbContact = _contactService.CreateContact(contact);
+            var dbContact = _contactService.ContactUs(contact);
             if (dbContact == null)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error during adding contact!");
             }
 
-            var emailSatus = _emailService.SendEmailToSupport(dbContact);
-
-            return Ok(emailSatus);
+            return Ok(dbContact);
         }
 
     }

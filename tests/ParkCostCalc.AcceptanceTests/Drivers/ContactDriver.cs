@@ -9,21 +9,21 @@ namespace ParkCostCalc.Core.Specs.Drivers
     public class ContactDriver
     {
         private readonly IContactService _contactService;
-        private readonly IEmailService _emailService;
+        private readonly IEmailSender _emailSender;
 
-        public ContactDriver(ContactService contactService, IEmailService emailService)
+        public ContactDriver(ContactService contactService, IEmailSender emailSender)
         {
             _contactService = contactService;
-            _emailService = emailService;
+            _emailSender = emailSender;
         }
 
         public Contact AddContactDetails(Contact contact)
         {
-            return _contactService.CreateContact(contact);
+            return _contactService.ContactUs(contact);
         }
         public bool SendEmail(Contact contact)
         {
-            return _emailService.SendEmailToSupport(contact);
+            return _emailSender.SendEmailToSupport("support@webpark.com", contact.Email, "support", contact.Message);
         }
     }
 }

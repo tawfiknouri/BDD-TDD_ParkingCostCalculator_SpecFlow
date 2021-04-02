@@ -5,7 +5,7 @@ namespace ParkCostCalc.Core.Interfaces
 {
      public interface ICostCalc
     {
-        public decimal CalculateCost(double totalMinutes);
+        public CostDetails CalculateCost(double totalMinutes);
 
     }
 }

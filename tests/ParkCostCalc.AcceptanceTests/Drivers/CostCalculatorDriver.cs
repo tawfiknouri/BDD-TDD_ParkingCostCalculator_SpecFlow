@@ -15,14 +15,13 @@ namespace ParkCostCalc.Core.Specs.Drivers
             _parkCostCalcService = parkCostCalcService;
         }
 
-        public CostDetails CalculateCost(ParkTypeEnum parkingLot, string duration)
+        public CostDetails CalculateCost(ParkTypeEnum parkType, string duration)
         {
             var totalMinutes = Parser.ParseDuration(duration);
             DateTime entryDate = DateTime.Now;
             DateTime exitDate = entryDate.AddMinutes(totalMinutes);
-            var parkRequest = new ParkRequest { EntryDate = entryDate, ExitDate = exitDate, ParkType = parkingLot };
 
-            var costDetails = _parkCostCalcService.CalculateCost(parkRequest);
+            var costDetails = _parkCostCalcService.CalculateCost(parkType, totalMinutes);
             return costDetails;
         }
     }
