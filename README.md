@@ -50,8 +50,8 @@ With each site having its own set of rules how a ticket price is calculated:
 
 # The Technologies
 * [SpecFlow](https://specflow.org/)
-* [.NET Core 3.1](https://dotnet.microsoft.com/download)
-* [Entity Framework Core 3.1](https://docs.microsoft.com/en-us/ef/core)
+* [.NET Core](https://dotnet.microsoft.com/download)
+* [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core)
 * [Nunit](https://nunit.org/)
   
 # Executing SpecFlow Acceptance Tests
