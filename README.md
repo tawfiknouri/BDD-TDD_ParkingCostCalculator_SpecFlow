@@ -54,8 +54,6 @@ With each site having its own set of rules how a ticket price is calculated:
 * [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core)
 * [Nunit](https://nunit.org/)
   
-# Executing SpecFlow Acceptance Tests
-
 
 # BDD practices
 ## Discovery
