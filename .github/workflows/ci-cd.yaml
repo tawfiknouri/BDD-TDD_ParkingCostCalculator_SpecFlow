@@ -1,4 +1,4 @@
-name: ci-ubuntu
+name: commit-and-acceptance-stages
 
 on: [push]
 
@@ -23,6 +23,11 @@ jobs:
       - name: Run UnitTests (ParkCostCalc.Core.UnitTests)
         run: |
           dotnet test tests/ParkCostCalc.Core.UnitTests -v m
+
+      - name: Create RC & Deploy 
+        run: |
+          echo "RC"
+          echo "Deploy RC"
 
       - name: Run AcceptanceTests
         run: |
