@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using ParkCostCalc.Core.Interfaces;
 using ParkCostCalc.Core.Services.CostCalculators;
 
 namespace ParkCostCalc.Core.UnitTests.CostCalculators
@@ -22,9 +21,9 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             var totalMinutes = -1;
 
-            var costDetails = _costCalculator.CalculateCost(totalMinutes);
+            var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(0, costDetails.Cost);
+            Assert.AreEqual(0, cost);
         }
 
         [Test]
@@ -32,9 +31,9 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             var totalMinutes = 0;
 
-             var costDetails = _costCalculator.CalculateCost(totalMinutes);
+             var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(0, costDetails.Cost);
+            Assert.AreEqual(0, cost);
         }
 
         [Test]
@@ -42,9 +41,9 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             var totalMinutes = 30;
 
-             var costDetails = _costCalculator.CalculateCost(totalMinutes);
+             var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(12, costDetails.Cost);
+            Assert.AreEqual(12, cost);
         }
 
 
@@ -54,9 +53,9 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             var totalMinutes = (3 * 60);
 
-             var costDetails = _costCalculator.CalculateCost(totalMinutes);
+             var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(12, costDetails.Cost);
+            Assert.AreEqual(12, cost);
         }
 
 
@@ -65,9 +64,9 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             var totalMinutes = (5 * 60);
 
-             var costDetails = _costCalculator.CalculateCost(totalMinutes);
+             var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(12, costDetails.Cost);
+            Assert.AreEqual(12, cost);
         }
 
 
@@ -76,9 +75,9 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             var totalMinutes = (5 * 60) + 1;
 
-             var costDetails = _costCalculator.CalculateCost(totalMinutes);
+             var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(18, costDetails.Cost);
+            Assert.AreEqual(18, cost);
         }
 
         [Test]
@@ -86,9 +85,9 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             var totalMinutes = (12 * 60);
 
-             var costDetails = _costCalculator.CalculateCost(totalMinutes);
+             var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(18, costDetails.Cost);
+            Assert.AreEqual(18, cost);
         }
 
         [Test]
@@ -96,9 +95,9 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             var totalMinutes = (24 * 60);
 
-             var costDetails = _costCalculator.CalculateCost(totalMinutes);
+             var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(18, costDetails.Cost);
+            Assert.AreEqual(18, cost);
         }
 
 
@@ -107,9 +106,9 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             var totalMinutes = (1 * 24 * 60) + 1;
 
-             var costDetails = _costCalculator.CalculateCost(totalMinutes);
+             var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(36, costDetails.Cost);
+            Assert.AreEqual(36, cost);
         }
 
 
@@ -118,9 +117,9 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             var totalMinutes = (3 * 24 * 60);
 
-             var costDetails = _costCalculator.CalculateCost(totalMinutes);
+             var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(54, costDetails.Cost);
+            Assert.AreEqual(54, cost);
         }
 
 
@@ -129,9 +128,9 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
         {
             var totalMinutes = (1 * 7 * 24 * 60);
 
-             var costDetails = _costCalculator.CalculateCost(totalMinutes);
+             var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(126, costDetails.Cost);
+            Assert.AreEqual(126, cost);
         }
 
     }

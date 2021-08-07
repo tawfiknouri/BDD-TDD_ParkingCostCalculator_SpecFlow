@@ -1,11 +1,9 @@
-﻿using BoDi;
+﻿using System;
+using BoDi;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Moq;
-using ParkCostCalc.Core.Interfaces;
-using ParkCostCalc.Core.Models;
-using ParkCostCalc.Infrastructure.Data;
-using ParkCostCalc.Infrastructure.Data.Repositories;
+using ParkCostCalc.AcceptanceTests.Support;
+using ParkCostCalc.Core.Infrastructure;
+using ParkCostCalc.Core.Infrastructure.Repositories;
 using TechTalk.SpecFlow;
 
 namespace ParkCostCalc.Core.Specs.Support
@@ -34,11 +32,7 @@ namespace ParkCostCalc.Core.Specs.Support
         [BeforeScenario]
         public void InitializeDependencies()
         {
-            _objectContainer.RegisterInstanceAs(new LoggerFactory(), typeof(ILoggerFactory));
-
-            var emailSender = new Mock<IEmailSender>();
-            emailSender.Setup(mock => mock.SendEmailToSupport(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
-            _objectContainer.RegisterInstanceAs(emailSender.Object, typeof(IEmailSender));
+            DependencyRegister.RegisterDependencies(_objectContainer);
         }
 
     }

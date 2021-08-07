@@ -5,12 +5,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using ParkCostCalc.Core.Interfaces;
+using ParkCostCalc.Core.Infrastructure;
+using ParkCostCalc.Core.Infrastructure.Repositories;
 using ParkCostCalc.Core.Services;
-using ParkCostCalc.Infrastructure;
-using ParkCostCalc.Infrastructure.Data;
-using ParkCostCalc.Infrastructure.Data.Repositories;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace ParkCostCalc.Api
 {
@@ -31,7 +30,6 @@ namespace ParkCostCalc.Api
                 opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
 
-            // Only for demos ...
             services.AddDbContext<ParkingDbContext>(options => options.UseSqlite("Data source=.\\..\\..\\data\\BDDParking.sqlite"));
 
             // Repositories
@@ -40,7 +38,7 @@ namespace ParkCostCalc.Api
             // Services
             services.AddTransient<IParkCostCalcService, ParkCostCalcService>();
             services.AddTransient<IContactService, ContactService>();
-            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IEmailService, EmailService>();
 
             //Update as appropriate for origin, method, header
             services.AddCors(options =>
@@ -55,7 +53,7 @@ namespace ParkCostCalc.Api
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Parking Cost Calculator API by Tawfik NOURI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebPark API by Tawfik NOURI", Version = "v1" });
             });
 
         }
@@ -68,7 +66,7 @@ namespace ParkCostCalc.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseHttpsRedirection(); //TNI
+            app.UseHttpsRedirection(); //TNI
 
             app.UseRouting();
 
@@ -90,6 +88,10 @@ namespace ParkCostCalc.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Parking Cost Calculator API V1");
             });
+
+
+            app.UseStatusCodePagesWithRedirects("/swagger/index.html");
+
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ParkCostCalc.Api.ApiModels;
-using ParkCostCalc.Core.Interfaces;
-
+using ParkCostCalc.Core.Models;
+using ParkCostCalc.Core.Services;
 
 namespace ParkCostCalc.Api.Controllers
 {
@@ -27,9 +26,7 @@ namespace ParkCostCalc.Api.Controllers
             {
                 return BadRequest("Entry date time cannot be less than exit date time!");
             }
-
-            var duration = (parkRequest.ExitDate - parkRequest.EntryDate).Value;
-            var costDetails = _costService.CalculateCost(parkRequest.ParkType.Value, duration.TotalMinutes);
+            var costDetails = _costService.CalculateCost(parkRequest);
             return Ok(costDetails);
         }
     }

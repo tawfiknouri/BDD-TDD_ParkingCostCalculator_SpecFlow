@@ -1,6 +1,4 @@
-﻿using ParkCostCalc.Application.Helpers;
-using ParkCostCalc.Core.Interfaces;
-using ParkCostCalc.Core.Models;
+﻿using ParkCostCalc.Core.Helpers;
 using System;
 
 namespace ParkCostCalc.Core.Services.CostCalculators
@@ -10,7 +8,7 @@ namespace ParkCostCalc.Core.Services.CostCalculators
         private const decimal COST_IN_5_HOURS = 12;
         private const decimal COST_PER_DAY = 18;
 
-        public CostDetails CalculateCost(double totalMinutes)
+        public decimal CalculateCost(double totalMinutes)
         {
             TimeSpan duration = TimeSpan.FromMinutes(totalMinutes);
             decimal totalCost = 0;
@@ -28,14 +26,7 @@ namespace ParkCostCalc.Core.Services.CostCalculators
                 totalCost = totalDays* COST_PER_DAY;
             }
 
-
-            return new CostDetails
-            {
-                Cost = totalCost,
-                Days = duration.Days,
-                Hours = duration.Hours,
-                Minutes = duration.Minutes
-            };
+            return totalCost;
         }
 
     }

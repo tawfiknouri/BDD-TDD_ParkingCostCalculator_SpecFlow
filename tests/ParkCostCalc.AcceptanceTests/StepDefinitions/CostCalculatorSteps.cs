@@ -1,6 +1,7 @@
 using NUnit.Framework;
-using ParkCostCalc.Core.Models;
 using ParkCostCalc.Core.Specs.Drivers;
+using ParkCostCalc.Core.Specs.Models;
+using ParkCostCalc.Core.Specs.Dsl;
 using ParkingCostCalculator.Specs.Helpers;
 using System;
 
@@ -12,12 +13,12 @@ namespace ParkCostCalc.Core.Specs.StepDefinitions
     public class CostCalculatorSteps
     {
         private readonly ScenarioContext _scenarioContext;
-        private readonly CostCalculatorDriver _costCalcdriver;
+        private readonly CostCalculatorDsl _costCalcDsl;
 
-        public CostCalculatorSteps(ScenarioContext scenarioContext, CostCalculatorDriver costCalcdriver)
+        public CostCalculatorSteps(ScenarioContext scenarioContext, CostCalculatorDsl costCalculatorDsl)
         {
             _scenarioContext = scenarioContext;
-            _costCalcdriver = costCalcdriver;
+            _costCalcDsl = costCalculatorDsl;
         }
 
         [Given(@"parking lot is (.*)")]
@@ -38,15 +39,15 @@ namespace ParkCostCalc.Core.Specs.StepDefinitions
             _scenarioContext.TryGetValue("duration", out string duration);
             _scenarioContext.TryGetValue("parkingLot", out ParkTypeEnum parkType);
 
-            var costDetails  = _costCalcdriver.CalculateCost(parkType, duration);
-            _scenarioContext.Add("CostDetails", costDetails);
+            var cost  = _costCalcDsl.CalculateCost(parkType, duration);
+            _scenarioContext.Add("cost", cost);
         }
 
         [Then(@"the parking cost should be (.*)")]
         public void ThenTheParkingCostShouldBe(string expectedCost)
         {
-            _scenarioContext.TryGetValue("CostDetails", out CostDetails costDetails);
-            Assert.AreEqual(Parser.ParseCost(expectedCost), costDetails.Cost);
+            _scenarioContext.TryGetValue("cost", out decimal cost);
+            Assert.AreEqual(Parser.ParseCost(expectedCost), cost);
         }
 
     }

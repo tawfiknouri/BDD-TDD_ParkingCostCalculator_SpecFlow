@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ParkCostCalc.Core.Interfaces;
 using ParkCostCalc.Core.Models;
 using ParkCostCalc.Core.Services;
 
@@ -12,12 +11,12 @@ namespace ParkCostCalc.Api.Controllers
     public class ContactController : ControllerBase
     {
         private readonly IContactService _contactService;
-       
+        private readonly IEmailService _emailService;
 
-        public ContactController(IContactService contactService, IEmailSender emailSender)
+        public ContactController(IContactService contactService, IEmailService emailService)
         {
             _contactService = contactService;
-            
+            _emailService = emailService;
         }
 
         [HttpPost]
@@ -28,13 +27,15 @@ namespace ParkCostCalc.Api.Controllers
                 return BadRequest();
             }
 
-            var dbContact = _contactService.ContactUs(contact);
+            var dbContact = _contactService.CreateContact(contact);
             if (dbContact == null)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error during adding contact!");
             }
 
-            return Ok(dbContact);
+            var emailSatus = _emailService.SendEmailToSupport(dbContact);
+
+            return Ok(emailSatus);
         }
 
     }

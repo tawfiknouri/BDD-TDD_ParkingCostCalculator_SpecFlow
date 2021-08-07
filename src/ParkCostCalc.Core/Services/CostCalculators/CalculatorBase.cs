@@ -5,9 +5,7 @@ namespace ParkCostCalc.Core.Services.CostCalculators
 {
     public class CalculatorBase
     {
-
-
-        public CostDetails CalculateCost(double totalMinutes, decimal costsPerWeek, decimal costsPerDay, decimal costsPerHour)
+        public decimal CalculateCost(double totalMinutes, decimal costsPerWeek, decimal costsPerDay, decimal costsPerHour)
         {
             decimal totalCost = 0;
             TimeSpan duration = TimeSpan.FromMinutes(totalMinutes);
@@ -33,15 +31,7 @@ namespace ParkCostCalc.Core.Services.CostCalculators
                 totalCost = weeksCost + daysAndHoursCost;
             }
 
-
-            return new CostDetails
-            {
-                Cost = totalCost,
-                Days = duration.Days,
-                Hours = duration.Hours,
-                Minutes = duration.Minutes
-            };
-
+            return totalCost;
         }
 
     }
