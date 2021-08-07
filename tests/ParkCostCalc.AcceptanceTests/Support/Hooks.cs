@@ -1,9 +1,6 @@
 ﻿using System;
 using BoDi;
-using Microsoft.EntityFrameworkCore;
 using ParkCostCalc.AcceptanceTests.Support;
-using ParkCostCalc.Core.Infrastructure;
-using ParkCostCalc.Core.Infrastructure.Repositories;
 using TechTalk.SpecFlow;
 
 namespace ParkCostCalc.Core.Specs.Support
@@ -21,12 +18,7 @@ namespace ParkCostCalc.Core.Specs.Support
         [BeforeScenario("db")]
         public void InitializeDataBaseDependencies()
         {
-            var options = new DbContextOptionsBuilder<ParkingDbContext>()
-               .UseInMemoryDatabase(databaseName: "BDDParking")
-               .Options;
-
-            _objectContainer.RegisterInstanceAs(new ParkingDbContext(options), typeof(ParkingDbContext));
-            _objectContainer.RegisterTypeAs<ContactRepository, IContactRepository>();
+            // todo: setup data for acceptance tests
         }
 
         [BeforeScenario]
