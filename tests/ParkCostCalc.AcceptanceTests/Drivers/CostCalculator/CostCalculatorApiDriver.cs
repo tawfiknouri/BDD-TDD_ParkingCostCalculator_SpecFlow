@@ -11,16 +11,12 @@ namespace ParkCostCalc.Core.Specs.Drivers.CostCalculator
     public class CostCalculatorApiDriver : ICostCalculatorDriver
     {
 
-
         public CostCalculatorApiDriver()
         {
-            //_parkCostCalcService = parkCostCalcService;
+
         }
-
-
         public decimal CalculateCost(ParkTypeEnum parkingType, string duration)
         {
-
             var apiBaseUrl = "https://webpark-api.herokuapp.com";
             var requestUrl = "/CostCalculator";
 
@@ -28,33 +24,20 @@ namespace ParkCostCalc.Core.Specs.Drivers.CostCalculator
             DateTime entryDate = DateTime.Now;
             DateTime exitDate = entryDate.AddMinutes(totalMinutes);
 
-            var requestData = new {
+            var requestData = new
+            {
                 parkType = parkingType.ToString(),
-                entryDate= entryDate,
+                entryDate = entryDate,
                 exitDate = exitDate
             };
 
             var restClient = new RestClient(apiBaseUrl);
-
             var request = new RestRequest(requestUrl, Method.POST);
             request.RequestFormat = RestSharp.DataFormat.Json;
             request.AddJsonBody(requestData);
             request.Timeout = 600000;
-
             var response = restClient.Execute(request);
-
-           /* if(response.ResponseStatus != RestSharp.ResponseStatus.Completed)
-            {
-                // show error or throw execptionn
-            }
-            */
-
-      
-
             CostResponse costResponse = new JsonDeserializer().Deserialize<CostResponse>(response);
-
-
-
             return Decimal.Parse(costResponse.Cost);
         }
     }

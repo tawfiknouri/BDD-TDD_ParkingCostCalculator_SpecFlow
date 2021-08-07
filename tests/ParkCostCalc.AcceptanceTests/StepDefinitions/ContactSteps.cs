@@ -32,12 +32,7 @@ namespace ParkCostCalc.Core.Specs.StepDefinitions
         [When(@"the contact request is submitted")]
         public void WhenTheContactRequestIsSubmitted()
         {
-            // Adding Contact
-            //_contactDetails = _contactDsl.AddContactDetails(_contactDetails);
-
-            // Sending Email
-            //var emailSentStatus = _contactDriver.SendEmail(_contactDetails);
-            //_scenarioContext.Add("emailSentStatus", emailSentStatus);
+            // todo
         }
 
         [Then(@"the contact request should be created successfully")]
