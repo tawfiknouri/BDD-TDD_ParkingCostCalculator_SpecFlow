@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkCostCalc.Core", "src\Pa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkCostCalc.Api", "src\ParkCostCalc.Api\ParkCostCalc.Api.csproj", "{E081E434-4337-4BA5-BCD2-7344C0EB12D6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkCostCalc.Core.UnitTests", "tests\ParkCostCalc.Core.UnitTests\ParkCostCalc.Core.UnitTests.csproj", "{F8D63385-2B3A-43F8-803D-C6450B81739E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F0A54108-8349-414C-AB99-4F95115BBC04}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A38FD08F-DCEC-4676-9627-5AE723A699A6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkCostCalc.AcceptanceTests", "tests\ParkCostCalc.AcceptanceTests\ParkCostCalc.AcceptanceTests.csproj", "{6BB3EA4F-9F89-4E37-A1BD-CD0D7529F013}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkCostCalc.UnitTests", "tests\ParkCostCalc.UnitTests\ParkCostCalc.UnitTests.csproj", "{8193D81F-31F1-439A-80A8-9A969F3A0704}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +29,14 @@ Global
 		{E081E434-4337-4BA5-BCD2-7344C0EB12D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E081E434-4337-4BA5-BCD2-7344C0EB12D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E081E434-4337-4BA5-BCD2-7344C0EB12D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8D63385-2B3A-43F8-803D-C6450B81739E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8D63385-2B3A-43F8-803D-C6450B81739E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8D63385-2B3A-43F8-803D-C6450B81739E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8D63385-2B3A-43F8-803D-C6450B81739E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6BB3EA4F-9F89-4E37-A1BD-CD0D7529F013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6BB3EA4F-9F89-4E37-A1BD-CD0D7529F013}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BB3EA4F-9F89-4E37-A1BD-CD0D7529F013}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BB3EA4F-9F89-4E37-A1BD-CD0D7529F013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8193D81F-31F1-439A-80A8-9A969F3A0704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8193D81F-31F1-439A-80A8-9A969F3A0704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8193D81F-31F1-439A-80A8-9A969F3A0704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8193D81F-31F1-439A-80A8-9A969F3A0704}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,8 +44,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{07375135-2088-46CD-92BD-52324239FAE3} = {A38FD08F-DCEC-4676-9627-5AE723A699A6}
 		{E081E434-4337-4BA5-BCD2-7344C0EB12D6} = {A38FD08F-DCEC-4676-9627-5AE723A699A6}
-		{F8D63385-2B3A-43F8-803D-C6450B81739E} = {F0A54108-8349-414C-AB99-4F95115BBC04}
 		{6BB3EA4F-9F89-4E37-A1BD-CD0D7529F013} = {F0A54108-8349-414C-AB99-4F95115BBC04}
+		{8193D81F-31F1-439A-80A8-9A969F3A0704} = {F0A54108-8349-414C-AB99-4F95115BBC04}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {925F0B4E-D04A-4F10-9F43-E68302BEBA7D}
