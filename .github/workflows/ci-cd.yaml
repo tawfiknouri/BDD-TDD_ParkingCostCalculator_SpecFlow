@@ -22,7 +22,7 @@ jobs:
           dotnet build
       - name: Run UnitTests (ParkCostCalc.Core.UnitTests)
         run: |
-          dotnet test tests/ParkCostCalc.Core.UnitTests -v m
+          dotnet test tests/ParkCostCalc.UnitTests -v m
 
       - name: Create RC & Deploy 
         run: |

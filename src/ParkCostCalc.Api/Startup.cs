@@ -1,15 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using ParkCostCalc.Core.Infrastructure;
-using ParkCostCalc.Core.Infrastructure.Repositories;
 using ParkCostCalc.Core.Services;
 using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Rewrite;
 
 namespace ParkCostCalc.Api
 {
@@ -30,15 +26,8 @@ namespace ParkCostCalc.Api
                 opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
 
-            services.AddDbContext<ParkingDbContext>(options => options.UseSqlite("Data source=.\\..\\..\\data\\BDDParking.sqlite"));
-
-            // Repositories
-            services.AddTransient<IContactRepository, ContactRepository>();
-
             // Services
             services.AddTransient<IParkCostCalcService, ParkCostCalcService>();
-            services.AddTransient<IContactService, ContactService>();
-            services.AddTransient<IEmailService, EmailService>();
 
             //Update as appropriate for origin, method, header
             services.AddCors(options =>
@@ -66,7 +55,7 @@ namespace ParkCostCalc.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection(); //TNI
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -88,7 +77,6 @@ namespace ParkCostCalc.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Parking Cost Calculator API V1");
             });
-
 
             app.UseStatusCodePagesWithRedirects("/swagger/index.html");
 
