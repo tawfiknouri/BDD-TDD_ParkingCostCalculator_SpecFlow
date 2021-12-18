@@ -147,4 +147,4 @@ Scenario Outline: Calculate LongTermGarage Parking Cost
 
 ### Living Documentation
 
-![alt text](./Images/Living_Documentation.png "Living Documentation")
+![alt text](./docs/Images/Living_Documentation.png "Living Documentation")
