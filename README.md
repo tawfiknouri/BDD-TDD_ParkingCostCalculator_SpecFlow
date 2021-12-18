@@ -144,3 +144,7 @@ Scenario Outline: Calculate LongTermGarage Parking Cost
 
 
 ## Automation
+
+### Living Documentation
+
+![alt text](./Images/Living_Documentation.png "Living Documentation")
