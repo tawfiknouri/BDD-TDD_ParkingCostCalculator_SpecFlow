@@ -1,8 +1,7 @@
 ﻿using NUnit.Framework;
 using ParkCostCalc.Core.Services.CostCalculators;
-using System;
 
-namespace ParkCostCalc.Core.UnitTests.CostCalculators
+namespace ParkCostCalc.UnitTests.CostCalculators
 {
     [TestFixture]
     public class ShortTermTest
@@ -15,82 +14,19 @@ namespace ParkCostCalc.Core.UnitTests.CostCalculators
             _costCalculator = new ShortTerm();
         }
 
-        [Test]
-        public void Should_Charge_0_Euros_When_ShortTerm_Parking_Time_Is_Negative()
+        [TestCase(-1, 0, TestName = "Cost for negative parking time")]
+        [TestCase(0, 0, TestName = "Cost for 0 Minute")]
+        [TestCase(30, 2, TestName = "Cost for 30 Minutes")]
+        [TestCase((1 * 60), 2, TestName = "Cost for 1 Hour")]
+        [TestCase((3 * 60) + 30, 7, TestName = "Cost for 3 Hours 30 Minutes")]
+        [TestCase((12 * 60) + 30, 24, TestName = "Cost for 12 Hours 30 Minutes")]
+        [TestCase((1 * 24 * 60) + 30, 25, TestName = "Cost for 1 Day 30 Minutes")]
+        [TestCase((1 * 24 * 60) + (1 * 60), 26, TestName = "Cost for 1 Day 1 Hour")]
+        public void Should_Charge_Expected_Cost(int totalMinutes, decimal expectedCost)
         {
-            var totalMinutes = -1;
-
             var cost = _costCalculator.CalculateCost(totalMinutes);
 
-            Assert.AreEqual(0, cost);
+            Assert.AreEqual(expectedCost, cost);
         }
-
-        [Test]
-        public void Should_Charge_0_Euros_When_ShortTerm_Parking_Time_Is_0_Minute()
-        {
-            long totalMinutes = 0;
-
-            var cost = _costCalculator.CalculateCost(totalMinutes);
-
-            Assert.AreEqual(0, cost);
-        }
-        [Test]
-        public void Should_Charge_2_Euros_When_ShortTerm_Parking_Time_Is_30_Minutes()
-        {
-            long totalMinutes = 30;
-
-            var cost = _costCalculator.CalculateCost(totalMinutes);
-
-            Assert.AreEqual(2, cost);
-        }
-
-        [Test]
-        public void Should_Charge_2_Euros_When_ShortTerm_Parking_Time_Is_1_Hour()
-        {
-            long totalMinutes = (1 * 60);
-
-            var cost = _costCalculator.CalculateCost(totalMinutes);
-
-            Assert.AreEqual(2, cost);
-        }
-
-        [Test]
-        public void Should_Charge_7_Euros_When_ShortTerm_Parking_Time_Is_3_Hours_30_Minutes()
-        {
-            long totalMinutes = (3 * 60) + 30;
-
-            var cost = _costCalculator.CalculateCost(totalMinutes);
-
-            Assert.AreEqual(7, cost);
-        }
-        [Test]
-        public void Should_Charge_24_Euros_When_ShortTerm_Parking_Time_Is_12_Hours_30_Minutes()
-        {
-            long totalMinutes = (12 * 60) + 30;
-
-            var cost = _costCalculator.CalculateCost(totalMinutes);
-
-            Assert.AreEqual(24, cost);
-        }
-        [Test]
-        public void Should_Charge_25_Euros_When_ShortTerm_Parking_Time_Is_1_Day_30_Minutes()
-        {
-            long totalMinutes = (1 * 24 * 60) + 30;
-
-            var cost = _costCalculator.CalculateCost(totalMinutes);
-
-            Assert.AreEqual(25, cost);
-        }
-        [Test]
-        public void Should_Charge_26_Euros_When_ShortTerm_Parking_Time_Is_1_Day_1_Hour()
-        {
-            long totalMinutes = (1 * 24 * 60) + 60;
-
-            var cost = _costCalculator.CalculateCost(totalMinutes);
-
-            Assert.AreEqual(26, cost);
-        }
-
-
     }
 }

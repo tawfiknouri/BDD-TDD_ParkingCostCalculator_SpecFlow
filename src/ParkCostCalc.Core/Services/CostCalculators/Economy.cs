@@ -1,9 +1,4 @@
-﻿
-
-using ParkCostCalc.Core.Models;
-using System;
-
-namespace ParkCostCalc.Core.Services.CostCalculators
+﻿namespace ParkCostCalc.Core.Services.CostCalculators
 {
     public class Economy : CalculatorBase, ICostCalc
     {

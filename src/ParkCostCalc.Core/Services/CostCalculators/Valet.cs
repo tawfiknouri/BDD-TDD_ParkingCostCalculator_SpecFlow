@@ -1,5 +1,5 @@
-﻿using ParkCostCalc.Core.Helpers;
-using System;
+﻿using System;
+using ParkCostCalc.Core.Helpers;
 
 namespace ParkCostCalc.Core.Services.CostCalculators
 {
@@ -10,24 +10,25 @@ namespace ParkCostCalc.Core.Services.CostCalculators
 
         public decimal CalculateCost(double totalMinutes)
         {
-            TimeSpan duration = TimeSpan.FromMinutes(totalMinutes);
+            var duration = TimeSpan.FromMinutes(totalMinutes);
             decimal totalCost = 0;
-            if (totalMinutes <= 0) totalCost = 0;
-            else
-             if (totalMinutes <= MinuteConvertor.Hours(5))
+            if (totalMinutes <= 0)
+            {
+                totalCost = 0;
+            }
+            else if (totalMinutes <= MinuteConvertor.Hours(5))
             {
                 totalCost = COST_IN_5_HOURS;
             }
             else
             {
                 var days = duration.Days;
-                var startedDay = (duration.Hours | duration.Minutes )!= 0 ? 1 : 0;
+                var startedDay = (duration.Hours | duration.Minutes) != 0 ? 1 : 0;
                 var totalDays = days + startedDay;
-                totalCost = totalDays* COST_PER_DAY;
+                totalCost = totalDays * COST_PER_DAY;
             }
 
             return totalCost;
         }
-
     }
 }

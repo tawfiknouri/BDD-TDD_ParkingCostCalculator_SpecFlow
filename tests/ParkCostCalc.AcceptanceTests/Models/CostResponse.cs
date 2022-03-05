@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
-namespace ParkCostCalc.Core.Specs.Models
+
+namespace ParkCostCalc.AcceptanceTests.Models
 {
     public class CostResponse
     {

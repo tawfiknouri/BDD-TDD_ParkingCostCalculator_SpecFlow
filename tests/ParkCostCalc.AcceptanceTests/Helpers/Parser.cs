@@ -1,11 +1,11 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace ParkingCostCalculator.Specs.Helpers
+namespace ParkCostCalc.AcceptanceTests.Helpers
 {
-    public class Parser
+    public static class Parser
     {
         private const int MinutesPerHour = 60;
-        private const int MinutesPerDay  = 24 * MinutesPerHour;
+        private const int MinutesPerDay = 24 * MinutesPerHour;
         private const int MinutesPerWeek = 7 * MinutesPerDay;
 
         public static int ParseDuration(string duration)
@@ -37,7 +37,7 @@ namespace ParkingCostCalculator.Specs.Helpers
         private static int ParseWeeks(string duration)
         {
             return ParseNumberAccordingToPattern(@"(\d+)\s?week(s)?", duration);
-           // return ParseNumberAccordingToPattern(@"(\d+)\s?(week(s)|semaine(s))?", duration);
+            // return ParseNumberAccordingToPattern(@"(\d+)\s?(week(s)|semaine(s))?", duration);
         }
 
         private static int ParseDays(string duration)

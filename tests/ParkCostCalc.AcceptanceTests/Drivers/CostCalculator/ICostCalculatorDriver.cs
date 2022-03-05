@@ -1,11 +1,9 @@
+using ParkCostCalc.AcceptanceTests.Models;
 
-using ParkCostCalc.Core.Specs.Models;
-
-namespace ParkCostCalc.Core.Specs.Drivers.CostCalculator
+namespace ParkCostCalc.AcceptanceTests.Drivers.CostCalculator
 {
-     public interface ICostCalculatorDriver
+    public interface ICostCalculatorDriver
     {
         public decimal CalculateCost(ParkTypeEnum parkingLot, string duration);
-
     }
 }

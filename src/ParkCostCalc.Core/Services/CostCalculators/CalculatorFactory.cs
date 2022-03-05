@@ -16,5 +16,4 @@ namespace ParkCostCalc.Core.Services.CostCalculators
                 .SingleOrDefault();
         }
     }
-
 }

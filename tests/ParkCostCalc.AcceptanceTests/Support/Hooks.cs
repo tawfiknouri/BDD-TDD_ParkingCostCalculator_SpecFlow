@@ -1,9 +1,7 @@
-﻿using System;
-using BoDi;
-using ParkCostCalc.AcceptanceTests.Support;
+﻿using BoDi;
 using TechTalk.SpecFlow;
 
-namespace ParkCostCalc.Core.Specs.Support
+namespace ParkCostCalc.AcceptanceTests.Support
 {
     [Binding]
     public class Hooks

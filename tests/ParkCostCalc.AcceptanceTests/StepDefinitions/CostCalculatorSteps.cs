@@ -1,13 +1,10 @@
 using NUnit.Framework;
-using ParkCostCalc.Core.Specs.Drivers;
-using ParkCostCalc.Core.Specs.Models;
-using ParkCostCalc.Core.Specs.Dsl;
-using ParkingCostCalculator.Specs.Helpers;
-using System;
-
+using ParkCostCalc.AcceptanceTests.Dsl;
+using ParkCostCalc.AcceptanceTests.Helpers;
+using ParkCostCalc.AcceptanceTests.Models;
 using TechTalk.SpecFlow;
 
-namespace ParkCostCalc.Core.Specs.StepDefinitions
+namespace ParkCostCalc.AcceptanceTests.StepDefinitions
 {
     [Binding]
     public class CostCalculatorSteps
@@ -39,7 +36,7 @@ namespace ParkCostCalc.Core.Specs.StepDefinitions
             _scenarioContext.TryGetValue("duration", out string duration);
             _scenarioContext.TryGetValue("parkingLot", out ParkTypeEnum parkType);
 
-            var cost  = _costCalcDsl.CalculateCost(parkType, duration);
+            var cost = _costCalcDsl.CalculateCost(parkType, duration);
             _scenarioContext.Add("cost", cost);
         }
 
@@ -49,8 +46,5 @@ namespace ParkCostCalc.Core.Specs.StepDefinitions
             _scenarioContext.TryGetValue("cost", out decimal cost);
             Assert.AreEqual(Parser.ParseCost(expectedCost), cost);
         }
-
     }
-
-
 }

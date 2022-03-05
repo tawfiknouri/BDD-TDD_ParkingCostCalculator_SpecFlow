@@ -1,13 +1,14 @@
+using System;
+using ParkCostCalc.Core.Interfaces;
 using ParkCostCalc.Core.Models;
 using ParkCostCalc.Core.Services.CostCalculators;
-using System;
 
 namespace ParkCostCalc.Core.Services
 {
     public class ParkCostCalcService : IParkCostCalcService
     {
         /// <summary>
-        /// Calculate the parking cost
+        ///     Calculate the parking cost
         /// </summary>
         /// <param name="parkRequest">Request represent the parking lot (type) and parking duration</param>
         /// <returns></returns>
@@ -19,7 +20,7 @@ namespace ParkCostCalc.Core.Services
             var totalMinutes = (parkRequest.ExitDate - parkRequest.EntryDate).Value.TotalMinutes;
             var totalCost = costCalculator.CalculateCost(totalMinutes);
 
-            TimeSpan duration = TimeSpan.FromMinutes(totalMinutes);
+            var duration = TimeSpan.FromMinutes(totalMinutes);
 
             return new CostDetails
             {

@@ -1,20 +1,13 @@
-
 using System;
-
-using ParkingCostCalculator.Specs.Helpers;
+using ParkCostCalc.AcceptanceTests.Helpers;
+using ParkCostCalc.AcceptanceTests.Models;
 using RestSharp;
-using Newtonsoft.Json;
-using ParkCostCalc.Core.Specs.Models;
 using RestSharp.Serialization.Json;
-namespace ParkCostCalc.Core.Specs.Drivers.CostCalculator
+
+namespace ParkCostCalc.AcceptanceTests.Drivers.CostCalculator
 {
-    public class CostCalculatorApiDriver : ICostCalculatorDriver
+    public abstract class CostCalculatorApiDriver : ICostCalculatorDriver
     {
-
-        public CostCalculatorApiDriver()
-        {
-
-        }
         public decimal CalculateCost(ParkTypeEnum parkingType, string duration)
         {
             var apiBaseUrl = "https://webpark-api.herokuapp.com";

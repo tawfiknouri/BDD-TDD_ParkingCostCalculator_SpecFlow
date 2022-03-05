@@ -1,7 +1,4 @@
-﻿using ParkCostCalc.Core.Models;
-using System;
-
-namespace ParkCostCalc.Core.Services.CostCalculators
+﻿namespace ParkCostCalc.Core.Services.CostCalculators
 {
     public class LongTermSurface : CalculatorBase, ICostCalc
     {
@@ -13,7 +10,5 @@ namespace ParkCostCalc.Core.Services.CostCalculators
         {
             return CalculateCost(totalMinutes, MAX_COST_PER_WEEK, MAX_COST_PER_DAY, MAX_COST_PER_HOUR);
         }
-
-        
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ParkCostCalc.Core.Specs.Models
+﻿namespace ParkCostCalc.AcceptanceTests.Models
 {
     public enum ParkTypeEnum
     {
