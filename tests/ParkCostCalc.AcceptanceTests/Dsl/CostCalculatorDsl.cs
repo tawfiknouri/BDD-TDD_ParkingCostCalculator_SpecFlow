@@ -3,7 +3,7 @@ using ParkCostCalc.AcceptanceTests.Models;
 
 namespace ParkCostCalc.AcceptanceTests.Dsl
 {
-    public abstract class CostCalculatorDsl
+    public class CostCalculatorDsl
     {
         private readonly ICostCalculatorDriver _driver;
 

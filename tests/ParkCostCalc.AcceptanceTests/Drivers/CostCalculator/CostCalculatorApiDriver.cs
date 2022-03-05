@@ -6,7 +6,7 @@ using RestSharp.Serialization.Json;
 
 namespace ParkCostCalc.AcceptanceTests.Drivers.CostCalculator
 {
-    public abstract class CostCalculatorApiDriver : ICostCalculatorDriver
+    public class CostCalculatorApiDriver : ICostCalculatorDriver
     {
         public decimal CalculateCost(ParkTypeEnum parkingType, string duration)
         {
