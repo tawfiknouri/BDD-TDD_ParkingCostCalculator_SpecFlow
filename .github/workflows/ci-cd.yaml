@@ -1,6 +1,6 @@
 name: commit-and-acceptance-stages
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   build:
